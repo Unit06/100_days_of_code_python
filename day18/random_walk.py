@@ -2,16 +2,16 @@ from turtle import Turtle, Screen
 import random
 
 tim = Turtle()
-tim.speed(10)
+tim.speed(15)
 tim.pensize(15)
 
 def change_color():
-    R = random.random()
-    B = random.random()
-    G = random.random()
-    tim.color(R, G, B)
+    r = random.random()
+    b = random.random()
+    g = random.random()
+    tim.pencolor(r, g, b)
 
-for i in range(100):
+for i in range(200):
     change_color()
     steps = random.randint(0, 10) * 10
     angle = random.randint(1, 4) * 90
