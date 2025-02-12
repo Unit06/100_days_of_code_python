@@ -3,7 +3,7 @@ import turtle
 from turtle import Turtle, Screen
 import random
 
-# Extract colors from picture
+# Extract colors from picture !
 # colors_extract = colorgram.extract('paint.jpg', 50)
 # for color in colors_extract:
 #     r = color.rgb.r
