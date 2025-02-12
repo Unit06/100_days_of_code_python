@@ -24,16 +24,29 @@ tim = Turtle()
 # ----prepare Tim----
 tim.shape("circle")
 tim.penup()
-tim.speed(10)
+tim.hideturtle()
+tim.speed(15)
 tim.right(180)
 tim.forward(250)
-tim.right(180)
+tim.left(90)
+tim.forward(250)
+tim.left(90)
 # -------------------
-
-for i in range(10):
-    color = random.choice(colors_list_rgb)
-    tim.dot(20,color)
+def move_back():
+    tim.left(90)
     tim.forward(50)
+    tim.left(90)
+    tim.forward(500)
+    tim.left(180)
+
+def draw_line():
+    for i in range(10):
+        color = random.choice(colors_list_rgb)
+        tim.dot(20, color)
+        tim.forward(50)
+for _ in range(10):
+    draw_line()
+    move_back()
 
 screen = Screen()
 screen.exitonclick()
