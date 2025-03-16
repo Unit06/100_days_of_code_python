@@ -9,14 +9,11 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.title("Turtle ROAD")
 screen.tracer(0)
-cars = []
+
 
 level = Scoreboard()
 turtle = Player()
-
-for car_index in range(0,10):
-    new_car = CarManager()
-    cars.append(new_car)
+car_manager = CarManager()
 
 screen.listen()
 screen.onkey(turtle.go_up, "Up")
@@ -26,11 +23,19 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
 
-    for car in cars:
-        car.move()
+    car_manager.create_cars()
+    car_manager.move_cars()
 
-    if turtle.ycor() >= 280:
+    #Detect collision with car
+    for car in car_manager.all_cars:
+        if car.distance(turtle) < 20:
+           game_is_on = False
+           level.game_over()
+
+    #Detect successful crossing
+    if turtle.is_at_finish_line():
+        turtle.go_to_start()
+        car_manager.level_up()
         level.level_up()
-        turtle.reset_position()
 
 screen.exitonclick()
