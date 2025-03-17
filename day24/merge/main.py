@@ -14,7 +14,6 @@ def parse_name(text):
 
 def create_invitations(names):
     invitation_template = source_letter
-    # invitations = []
 
     for name in names:
         # Replace the placeholder with the actual name
@@ -30,8 +29,3 @@ with open("Input/Names/invited_names.txt", mode="r") as file:
 
 names_massive = parse_name(names)
 create_invitations(names_massive)
-
-
-
-# print(source_letter)
-# print(names_massive)
